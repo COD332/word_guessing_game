@@ -20,32 +20,83 @@ int main(void)
     for (int i = 0; i < 5; ++i)
     {
         change_color_rgb(236, 46, 242);
-        printf(". ");
+        printf("%c ", 176);
         flush();
         delay(500);
 
         change_color_rgb(113, 111, 252);
-        printf(". ");
+        printf("%c ", 176);
         flush();
-        delay(500);
+        delay(100);
 
         change_color_rgb(111, 252, 149);
-        printf(". ");
+        printf("%c ", 176);
         flush();
-        delay(500);
+        delay(250);
 
         change_color_rgb(238, 252, 111);
-        printf(". ");
+        printf("%c ", 176);
         flush();
         delay(500);
 
         change_color_rgb(252, 160, 111);
-        printf(". ");
+        printf("%c ", 176);
         flush();
-        delay(500);
+        delay(50);
     }
     reset_color();
     delay(2000);
     clear_screen();
+
+    // main menu page
     delay(2000);
+    printf("\n   > 1.Login");
+    delay(500);
+    printf("\n   > 2.Signup");
+    delay(500);
+    printf("\n   > 3.Exit");
+    delay(2000);
+
+    while (1)
+    {
+        char key = getch();
+
+        if (key == 72)
+        {
+            if (get_cursor_x() == 2)
+            {
+                continue;
+            }
+
+            cursor_up(1);
+        }
+
+        if (key == 80)
+        {
+            if (get_cursor_x() == 4)
+            {
+                continue;
+            }
+            cursor_down(1);
+        }
+
+        if (key == 13)
+        {
+            int curser_x_pos = get_cursor_x();
+
+            if (curser_x_pos == 4)
+            {
+                quit();
+            }
+            else if (curser_x_pos == 3)
+            {
+                clear_screen();
+            }
+            else if (curser_x_pos == 2)
+            {
+                clear_screen();
+            }
+            break;
+        }
+    }
 }
