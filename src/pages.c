@@ -1,6 +1,51 @@
 #include <stdio.h>
 
-int main_page_menu(void)
+int welcome_page(void)
+{
+    // welcome page
+    printf("\n");
+    delay(1000);
+    printf("  Welcome to ");
+    delay(1000);
+    change_color_rgb(207, 99, 99);
+    printf("WORD QUESSING");
+    reset_color();
+    delay(1000);
+    printf(" game !");
+    delay(2000);
+    printf("\n\n     Game Is Louding ");
+    for (int i = 0; i < 5; ++i)
+    {
+        change_color_rgb(236, 46, 242);
+        printf("%c ", 176);
+        flush();
+        delay(500);
+
+        change_color_rgb(113, 111, 252);
+        printf("%c ", 176);
+        flush();
+        delay(100);
+
+        change_color_rgb(111, 252, 149);
+        printf("%c ", 176);
+        flush();
+        delay(250);
+
+        change_color_rgb(238, 252, 111);
+        printf("%c ", 176);
+        flush();
+        delay(500);
+
+        change_color_rgb(252, 160, 111);
+        printf("%c ", 176);
+        flush();
+        delay(50);
+    }
+    reset_color();
+    delay(2000);
+}
+
+int main_menu_page(void)
 {
     // main menu page
     clear_screen();
