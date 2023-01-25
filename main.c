@@ -24,9 +24,9 @@ int main(void)
         {
             sign_up();
         }
-        else if (user_option == 2)
+        else if (user_option == 1)
         {
-            /* login */
+            login();
         }
     }
 }

@@ -88,13 +88,82 @@ int sign_up(void)
     change_color_rgb(41, 214, 73);
     printf("\n\n        ** The user was successfully registered :) ** \n");
     reset_color();
-    delay(500);
-    printf("\n    Moving to the main menu ");
+    delay(3000);
+    printf("\n\n    Moving to the main menu ");
     delay(500);
     for (int i = 0; i < 5; ++i)
     {
         printf(".");
         flush();
         delay(500);
+    }
+}
+
+// login
+int login(void)
+{
+    char username[25], password[25];
+    clear_screen();
+    delay(500);
+    printf("\n   > Please enter username : ");
+    scanf("%s", username);
+    delay(500);
+    if (!username_in_use(username))
+    {
+        change_color_rgb(207, 99, 99);
+        printf("\n        User ID is not registered in the system; Please register it first from the main menu");
+        reset_color();
+        delay(5000);
+        printf("\n\n    Moving to the main menu ");
+        delay(500);
+        for (int i = 0; i < 5; ++i)
+        {
+            printf(".");
+            flush();
+            delay(500);
+        }
+        return 0;
+    }
+    else
+    {
+        delay(500);
+        printf("\n   > Please enter password : ");
+        for (int i = 0; i < 25; i++)
+        {
+            char character = getch();
+
+            if (character == 13)
+            {
+                break;
+            }
+
+            printf("*");
+            password[i] = character;
+        }
+        if (!username_in_use(strcat(strcat(username, ":"), password)))
+        {
+            change_color_rgb(207, 99, 99);
+            printf("\n        wrong password, Please try again from the main menu");
+            reset_color();
+            delay(5000);
+            printf("\n\n    Moving to the main menu ");
+            delay(500);
+            for (int i = 0; i < 5; ++i)
+            {
+                printf(".");
+                flush();
+                delay(500);
+            }
+            return 0;
+        }
+        else
+        {
+            delay(500);
+            change_color_rgb(41, 214, 73);
+            printf("\n\n        ** You have entered correctly :) ** \n");
+            reset_color();
+            delay(5000);
+            return 1;
+        }
     }
 }
