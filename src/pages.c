@@ -2,7 +2,7 @@
 
 int main_page_menu(void)
 {
-    // main page menu
+    // main menu page
     clear_screen();
 
     delay(1000);
