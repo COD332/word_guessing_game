@@ -1,8 +1,6 @@
-#include <stdio.h>
-
+// welcome page
 int welcome_page(void)
 {
-    // welcome page
     printf("\n");
     delay(1000);
     printf("  Welcome to ");
@@ -45,9 +43,11 @@ int welcome_page(void)
     delay(2000);
 }
 
+
+
+// main menu page
 int main_menu_page(void)
 {
-    // main menu page
     clear_screen();
 
     delay(1000);
