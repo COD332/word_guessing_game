@@ -3,8 +3,9 @@
 int main_page_menu(void)
 {
     // main page menu
+    clear_screen();
 
-    delay(2000);
+    delay(1000);
     printf("\n   > 1.Login");
     delay(500);
     printf("\n   > 2.Signup");
@@ -15,17 +16,14 @@ int main_page_menu(void)
     while (1)
     {
         char key = getch();
-
         if (key == 72)
         {
             if (get_cursor_x() == 2)
             {
                 continue;
             }
-
             cursor_up(1);
         }
-
         if (key == 80)
         {
             if (get_cursor_x() == 4)
@@ -34,7 +32,6 @@ int main_page_menu(void)
             }
             cursor_down(1);
         }
-
         if (key == 13)
         {
             int curser_x_pos = get_cursor_x();
