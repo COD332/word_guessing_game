@@ -165,6 +165,7 @@ int login(void)
             change_color_rgb(41, 214, 73);
             printf("\n\n        ** You have entered correctly :) ** \n");
             reset_color();
+            delay(2000);
             return 1;
         }
     }

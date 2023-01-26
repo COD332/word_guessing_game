@@ -3,6 +3,7 @@
 #include <string.h>
 #include "./lib/clui.h"
 #include "./src/pages.c"
+#include "./src/game.c"
 #include "./src/authentication.c"
 
 int main(void)
@@ -52,11 +53,22 @@ int main(void)
                     }
                     else if (user_option == 2)
                     {
-                        // show leaderboard
+                        clear_screen();
+                        FILE *fPtr;
+                        fPtr = fopen("./data/scores.txt", "r");
+                        char c = fgetc(fPtr);
+                        while (c != EOF)
+                        {
+                            printf("%c", c);
+                            c = fgetc(fPtr);
+                        }
+                        fclose(fPtr);
+                        printf("\n\n\n   > back to game menu");
+                        getch();
                     }
                     else if (user_option == 1)
                     {
-                        // start game
+                        game();
                     }
                 }
             }
