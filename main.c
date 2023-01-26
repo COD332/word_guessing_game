@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <regex.h>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
 #include "./lib/clui.h"
 #include "./src/pages.c"
 #include "./src/game.c"
