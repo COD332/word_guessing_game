@@ -82,7 +82,7 @@ int sign_up(void)
 
     // TODO : save sha256 form of passwprd in file
 
-    fprintf(fPtr, "\n%s:%s", username, password);
+    fprintf(fPtr, "%s:%s\n", username, password);
     fclose(fPtr);
     delay(500);
     change_color_rgb(41, 214, 73);
@@ -128,18 +128,21 @@ int login(void)
     {
         delay(500);
         printf("\n   > Please enter password : ");
-        for (int i = 0; i < 25; i++)
-        {
-            char character = getch();
+        scanf("%s", password);
 
-            if (character == 13)
-            {
-                break;
-            }
+        // TODO
+        // for (int i = 0; i < 25; i++)
+        //{
+        //     char character = getch();
+        //
+        //    if (character == 13)
+        //    {
+        //        break;
+        //    }
+        //    password[i] = character;
+        //    printf("*");
+        //}
 
-            printf("*");
-            password[i] = character;
-        }
         if (!username_in_use(strcat(strcat(username, ":"), password)))
         {
             change_color_rgb(207, 99, 99);
@@ -162,7 +165,6 @@ int login(void)
             change_color_rgb(41, 214, 73);
             printf("\n\n        ** You have entered correctly :) ** \n");
             reset_color();
-            delay(5000);
             return 1;
         }
     }

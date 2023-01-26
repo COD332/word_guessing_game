@@ -43,8 +43,6 @@ int welcome_page(void)
     delay(2000);
 }
 
-
-
 // main menu page
 int main_menu_page(void)
 {
@@ -52,11 +50,10 @@ int main_menu_page(void)
 
     delay(1000);
     printf("\n   > 1.Login");
-    delay(500);
+    delay(250);
     printf("\n   > 2.Signup");
-    delay(500);
+    delay(250);
     printf("\n   > 3.Exit");
-    delay(2000);
 
     while (1)
     {
@@ -94,6 +91,63 @@ int main_menu_page(void)
             else if (curser_x_pos == 2)
             {
                 // user select login option
+                return 1;
+            }
+        }
+    }
+}
+
+// game menu page
+int game_menu_page(void)
+{
+    clear_screen();
+
+    delay(1000);
+    printf("\n   > 1.Start game");
+    delay(250);
+    printf("\n   > 2.Show leaderboard");
+    delay(250);
+    printf("\n   > 3.New word");
+    delay(250);
+    printf("\n   > 4.Back to main menu");
+
+    while (1)
+    {
+        char key = getch();
+        if (key == 72)
+        {
+            if (get_cursor_x() == 2)
+            {
+                continue;
+            }
+            cursor_up(1);
+        }
+        if (key == 80)
+        {
+            if (get_cursor_x() == 5)
+            {
+                continue;
+            }
+            cursor_down(1);
+        }
+        if (key == 13)
+        {
+            int curser_x_pos = get_cursor_x();
+
+            if (curser_x_pos == 5)
+            {
+                return 4;
+            }
+            else if (curser_x_pos == 4)
+            {
+                return 3;
+            }
+            else if (curser_x_pos == 3)
+            {
+                return 2;
+            }
+            else if (curser_x_pos == 2)
+            {
                 return 1;
             }
         }

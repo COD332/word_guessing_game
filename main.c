@@ -1,5 +1,3 @@
-// compile : gcc main.c -o game -lregex
-
 #include <stdio.h>
 #include <regex.h>
 #include <string.h>
@@ -26,7 +24,42 @@ int main(void)
         }
         else if (user_option == 1)
         {
-            login();
+            if (login())
+            {
+                while (1)
+                {
+                    int user_option = game_menu_page();
+                    if (user_option == 4)
+                    {
+                        break;
+                    }
+                    else if (user_option == 3)
+                    {
+                        char word[25];
+                        FILE *fPtr;
+                        fPtr = fopen("./data/words.txt", "a");
+                        clear_screen();
+                        delay(1000);
+                        printf("\n   > New word : ");
+                        scanf("%s", word);
+                        fprintf(fPtr, "%s\n", word);
+                        fclose(fPtr);
+                        delay(500);
+                        change_color_rgb(41, 214, 73);
+                        printf("\n\n        ** The new word added successfully ** \n");
+                        reset_color();
+                        delay(3000);
+                    }
+                    else if (user_option == 2)
+                    {
+                        // show leaderboard
+                    }
+                    else if (user_option == 1)
+                    {
+                        // start game
+                    }
+                }
+            }
         }
     }
 }
